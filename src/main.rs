@@ -29,7 +29,7 @@ async fn main() {
 
         // Flags
         Some("-h") | Some("--help") => println!("Function to show all the usable arguments:"),
-        Some("-v") | Some("--version") => println!("Function to show the downloaded version:"),
+        Some("-v") | Some("--version") => commands::_version::version(),
 
         // Exhaustive checks
         Some(other) => println!("Unknown argument: {}", other),
