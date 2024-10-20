@@ -1,7 +1,10 @@
 use std::env;
 use std::process;
+use tokio;
+mod commands;
 
-fn main() {
+#[tokio::main]
+async fn main() {
     
     //? [Simple arguments parser]
     let args: Vec<String> = env::args().collect();
@@ -20,7 +23,7 @@ fn main() {
         // Arguments
         Some("create") => println!("Function to create a model with a model file:"),
         Some("delete") => println!("Function to delete a model:"),
-        Some("list") => println!("Function to list all created model:"),
+        Some("list") => commands::_list::list().await,
         Some("run") => println!("Function to run a model:"),
         Some("rag") => println!("Function to edit the RAG assigned to a model:"),
 
