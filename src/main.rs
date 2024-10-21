@@ -21,15 +21,13 @@ async fn main() {
     match args.get(1).map(|s| s.as_str()) {
 
         // Arguments
-        Some("create") => println!("Function to create a model with a model file:"),
-        Some("delete") => println!("Function to delete a model:"),
-        Some("list") => commands::_list::list().await,
+        Some("config") => println!("Function to edit ollamind's configuration"),
         Some("run") => println!("Function to run a model:"),
         Some("rag") => println!("Function to edit the RAG assigned to a model:"),
 
         // Flags
         Some("-h") | Some("--help") => println!("Function to show all the usable arguments:"),
-        Some("-v") | Some("--version") => commands::_version::version(),
+        Some("-v") | Some("--version") => commands::_version(),
 
         // Exhaustive checks
         Some(other) => println!("Unknown argument: {}", other),
